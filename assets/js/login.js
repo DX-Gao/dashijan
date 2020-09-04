@@ -49,7 +49,7 @@ $(function () {
             username: $("#form_reg [name=username]").val(),
             password: $("#form_reg [name=password]").val()
         }
-        $.post("http://ajax.frontend.itheima.net/api/reguser",
+        $.post("/api/reguser",
             data,
             function (res) {
                 // console.log(res);  //{status: 0, message: "注册成功！"}
@@ -69,21 +69,21 @@ $(function () {
         e.preventDefault();
         $.ajax({
             type: "post",
-            url: "http://ajax.frontend.itheima.net/api/login",
+            url: "/api/login",
             data: $(this).serialize(),
             success: function (res) {
                 // console.log(res);
                 if (res.status != 0) {
                     return layer.msg('登录失败！');
-                } 
-                    //登录成功的提示框
-                    layer.msg('有表情地提示', {
-                        icon: 6
-                    });
-                    localStorage.setItem('token', res.token);
-                    // $("#form-login").val('');
-                    location.href = '/index.html'
-                
+                }
+                //登录成功的提示框
+                layer.msg('有表情地提示', {
+                    icon: 6
+                });
+                localStorage.setItem('token', res.token);
+                // $("#form-login").val('');
+                location.href = '/index.html'
+
 
             }
         });
