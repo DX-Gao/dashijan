@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="/assets/lib/cropper/cropper.css">
     <link rel="stylesheet" href="/article/art_pub.css" />
 </head>
 
@@ -15,7 +16,7 @@
         <div class="layui-card-header">写文章</div>
         <div class="layui-card-body">
             <!-- 发布文章的表单 -->
-            <form class="layui-form">
+            <form class="layui-form" id="form-pub">
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章标题</label>
                     <div class="layui-input-block">
@@ -42,6 +43,36 @@
                     </div>
                 </div>
 
+                <!-- 图片区域 -->
+                <div class="layui-form-item">
+                    <!-- 左侧的 label -->
+                    <label class="layui-form-label">文章封面</label>
+                    <!-- 选择封面区域 -->
+                    <div class="layui-input-block cover-box">
+                        <!-- 左侧裁剪区域 -->
+                        <div class="cover-left">
+                            <img id="image" src="/assets/images/sample2.jpg" alt="" />
+                        </div>
+                        <!-- 右侧预览区域和选择封面区域 -->
+                        <div class="cover-right">
+                            <!-- 预览的区域 -->
+                            <div class="img-preview"></div>
+                            <!-- 选择封面按钮 -->
+                            <button type="button" class="layui-btn layui-btn-danger" id="btnChooseImage">选择封面</button>
+                            <input type="file" name="" id="coverFile" style="display: none;"
+                                accept="image/png,image/ipeg,image/gif">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第五行 -->
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit id="btnSave">发布</button>
+                        <button class="layui-btn layui-btn-primary" lay-submit id="btnSave2">存为草稿</button>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
@@ -62,6 +93,9 @@
     <!-- 富文本的 -->
     <script src="/assets/lib/tinymce/tinymce.min.js"></script>
     <script src="/assets/lib/tinymce/tinymce_setup.js"></script>
+    <!-- cropper的 -->
+    <script src="/assets/lib/cropper/Cropper.js"></script>
+    <script src="/assets/lib/cropper/jquery-cropper.js"></script>
     <!-- 导入自己的 JS -->
     <script src="/article/art_pub.js"></script>
 </body>
